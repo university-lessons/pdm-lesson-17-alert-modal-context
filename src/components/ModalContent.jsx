@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, Button } from "react-native";
 import React from "react";
 
-export default function ModalContent() {
-  const handleOk = () => {
-    console.log("close modal!");
-  };
+export default function ModalContent({ handleOk }) {
+  // const handleOk = () => {
+  //   console.log("close modal!");
+  // };
 
   return (
     <View style={styles.container}>
