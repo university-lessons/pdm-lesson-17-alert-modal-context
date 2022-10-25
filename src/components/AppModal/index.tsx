@@ -1,14 +1,28 @@
-import { View, Text, Button, Modal, StyleSheet, Pressable } from "react-native";
-import React, { useState, createContext } from "react";
+import React, { createContext, ReactElement, useState } from "react";
+import { Modal, StyleSheet, View } from "react-native";
 
-export const ModalContext = createContext();
+export interface ModalContextProps {
+  show: Function;
+  hide: Function;
+}
 
-export default function AppModal({ children }) {
+const DEFAULT_VALUE = {
+  show: () => {},
+  hide: () => {},
+};
+
+export const ModalContext = createContext<ModalContextProps>(DEFAULT_VALUE);
+
+interface AppModalProps {
+  children: ReactElement;
+}
+
+export default function AppModal({ children }: AppModalProps) {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
   const appModal = {
-    show: (content) => {
+    show: (content: ReactElement) => {
       setModalContent(content);
       setModalVisible(true);
     },
