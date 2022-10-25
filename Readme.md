@@ -64,3 +64,10 @@ appModal.show( any view you want to display in modal )
 ```
 appModal.hide();
 ```
+
+## Changes for Typescript
+
+This repository has been updated to typescript. Major chages are located in `src/components/AppModal/index.tsx`:
+
+- The Context `ModalContext` now is typed;
+- `AppModalProps` was introduced to type the Modal Component Wrapper.
