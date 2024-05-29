@@ -5,7 +5,7 @@ import React, {
   useContext,
   useState,
 } from "react";
-import { Modal, View } from "react-native";
+import { Modal, Pressable, View } from "react-native";
 
 import styles from "./styles";
 
@@ -42,9 +42,12 @@ export default function ModalProvider({ children }: PropsWithChildren) {
           setModalVisible(!modalVisible);
         }}
       >
-        <View style={styles.container}>
-          <View style={styles.content}>{modalContent}</View>
-        </View>
+        <Pressable
+          style={styles.container}
+          onPress={() => setModalVisible(false)}
+        >
+          <Pressable style={styles.content}>{modalContent}</Pressable>
+        </Pressable>
       </Modal>
 
       {/* Render context children (your Page or App) */}
