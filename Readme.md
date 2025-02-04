@@ -1,20 +1,11 @@
+<!-- prettier-ignore-start -->
 # Expo Alert & Modal Example with Context API
 
-This project contains two screens with Alert and Modal examples. you can switch them directly on `App.js`, just uncomment the component you want to return:
-
-```js
-// return <Home />;
-
-return (
-  <AppModal>
-    <Signup />
-  </AppModal>
-);
-```
+This project contains two examples with Alert and Modal. Modal is implemented using Context API with a custom Consumer hook.
 
 ## Alert Usage
 
-Alert is a simple component, acessible by Alert contant imported from react-native:
+Alert is a component acessible by Alert contant imported from react-native:
 
 ```js
 import { Alert } from "react-native";
@@ -24,50 +15,57 @@ import { Alert } from "react-native";
 Alert.alert("Confirmation", "Are you sure to override data? ", [ buttons array ]);
 ```
 
+Check [src/examples/AlertExample.tsx](src/examples/AlertExample.tsx) for details.
+
 ## Modal Usage
 
 This example shows a Modal wrapped in a Context wich requires to:
 
-1. Wrap application (or sub-tree) with context provided by `AppModal` (check `App.js` for complete example):
+1. Wrap application (or sub-tree) with context provided by `ModalProvider` (check [App.tsx](App.tsx) for complete details):
 
 ```js
-<AppModal>your screen or app root</AppModal>
+<ModalProvider>
+  your screen or app root
+</ModalProvider>
 ```
 
-2. Access context in sub-components to show and hide Modal (check `Signup.jsx` for complete example):
+Tip: if you're using Expo Router you can wrap the entire `_layout` to ensure all screens have access to the modal context.
+
+2. Access context in sub-components using the custom hook to show and hide Modal:
 
 ```js
-import { ModalContext } from "../components/AppModal";
+import { useModal } from "../components/ModalProvider";
 
 ...
 
-const appModal = useContext(ModalContext);
+const modal = useModal();
 
-appModal.show(
+modal.show(
   <>
     your content must be passed as modal argument
 
-    dont forget to provide an appModal.hide() callback, e.g. in a Button
+    dont forget to provide an modal.hide() callback, e.g. in a Button
 
-    <Button title="OK" onPress={() => appModal.hide()} />
+    <Button title="OK" onPress={() => modal.hide()} />
   </>
 );
 
 ```
 
-Note that the only reference needed by client components is `appModal` context:
+Note that the only reference needed by client components is `modal` context from `useModal` hook:
 
-```
-appModal.show( any view you want to display in modal )
-```
-
-```
-appModal.hide();
+```js
+modal.show( 
+  any view you want to display in modal 
+)
 ```
 
-## Changes for Typescript
+```js
+modal.hide();
+```
 
-This repository has been updated to typescript. Major chages are located in `src/components/AppModal/index.tsx`:
+Want to use this modal in your project? Just copy [src/components/ModalProvider](src/components/ModalProvider) and use it. You can change modal styles in `styles.ts` 😉
 
-- The Context `ModalContext` now is typed;
-- `AppModalProps` was introduced to type the Modal Component Wrapper.
+Check [src/examples/ModalExample.tsx](src/examples/ModalExample.tsx) for details.
+
+<!-- prettier-ignore-end -->

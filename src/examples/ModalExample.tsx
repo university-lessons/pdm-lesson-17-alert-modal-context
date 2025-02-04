@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { useModal } from "../components/ModalProvider";
+import styles from "./styles";
 
-export default function Signup() {
+export default function ModalExample() {
   const [name, setName] = useState("");
   const modal = useModal();
 
   // Modal logic in contained in appModal context. Just use appModal.show( your_view )
-  const handleSignup = () => {
+  const handleShowModal = () => {
     if (name.length < 3) {
       modal.show(
         <>
-          <Text>Error Message</Text>
-          <Text>Name must have 3 or more characters length!</Text>
+          <Text>This is the Modal content</Text>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation
+          </Text>
           <Text>
             This modal content is flexible and given by client component
-            (Signup.jsx)
+            (ModalExample.jsx)
           </Text>
           <Button title="OK" onPress={() => modal.hide()} />
         </>
@@ -25,18 +30,9 @@ export default function Signup() {
 
   return (
     <View style={styles.container}>
-      <Text>Signup</Text>
+      <Text>Modal Example (src/examples/ModalExample.tsx)</Text>
       <TextInput value={name} onChangeText={setName} placeholder="Name" />
-      <Button title="Signup" onPress={handleSignup} />
+      <Button title="Show Modal" onPress={handleShowModal} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
