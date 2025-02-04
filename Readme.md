@@ -1,6 +1,6 @@
-# Expo Alert & Modal Example
+# Expo Alert & Modal Example with Context API
 
-This project holds two screens with Alert and Modal examples. you can switch them directly on `App.js`, junt uncomment the component you want to return:
+This project contains two screens with Alert and Modal examples. you can switch them directly on `App.js`, just uncomment the component you want to return:
 
 ```js
 // return <Home />;
