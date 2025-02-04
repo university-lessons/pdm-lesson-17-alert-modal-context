@@ -1,15 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
-import { ModalContext } from "../components/AppModal";
+import { useModal } from "../components/ModalProvider";
 
 export default function Signup() {
   const [name, setName] = useState("");
-  const appModal = useContext(ModalContext);
+  const modal = useModal();
 
   // Modal logic in contained in appModal context. Just use appModal.show( your_view )
   const handleSignup = () => {
     if (name.length < 3) {
-      appModal.show(
+      modal.show(
         <>
           <Text>Error Message</Text>
           <Text>Name must have 3 or more characters length!</Text>
@@ -17,7 +17,7 @@ export default function Signup() {
             This modal content is flexible and given by client component
             (Signup.jsx)
           </Text>
-          <Button title="OK" onPress={() => appModal.hide()} />
+          <Button title="OK" onPress={() => modal.hide()} />
         </>
       );
     }
