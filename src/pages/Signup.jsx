@@ -3,11 +3,15 @@ import React, { useState } from "react";
 import ModalContent from "../components/ModalContent";
 
 export default function Signup() {
+  const [modalVisible, setModalVisible] = useState(false);
+
   const [name, setName] = useState("");
-  const [modalVisible, setModalVisible] = useState(true);
 
   const handleSignup = () => {
-    if (name.length < 3) console.log("O nome deve ter 3 caracteres ou mais!");
+    if (name.length < 3) {
+      console.log("O nome deve ter 3 caracteres ou mais!");
+      setModalVisible(true);
+    }
   };
 
   return (
@@ -21,7 +25,7 @@ export default function Signup() {
           setModalVisible(!modalVisible);
         }}
       >
-        <ModalContent />
+        <ModalContent handleOk={() => setModalVisible(false)} />
       </Modal>
 
       <Text>Signup</Text>
