@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, Button, TextInput, Modal } from "react-native";
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { ModalContext } from "../components/AppModal";
 
 export default function Signup() {
