@@ -3,7 +3,15 @@ import React from "react";
 import styles from "./styles";
 
 export default function AlertExample() {
-  const handleAlert = () => {
+  const handleInfo = () => {
+    Alert.alert("Info", "Data saved!", [
+      {
+        text: "OK",
+      },
+    ]);
+  };
+
+  const handleConfirm = () => {
     Alert.alert("Confirmation", "Are you sure to override data? ", [
       {
         text: "Cancel",
@@ -20,10 +28,11 @@ export default function AlertExample() {
   return (
     <View style={styles.container}>
       <View>
-        <Text>Alert Example (src/examples/AlertExample.tsx)</Text>
+        <Text>Alert Examples (src/examples/AlertExample.tsx)</Text>
         <Text>(check also console logs)</Text>
       </View>
-      <Button title="Show Alert" onPress={handleAlert} />
+      <Button title="Show Info Alert" onPress={handleInfo} />
+      <Button title="Show Confirm Alert" onPress={handleConfirm} />
     </View>
   );
 }
