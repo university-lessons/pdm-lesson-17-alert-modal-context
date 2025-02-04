@@ -7,11 +7,11 @@ export default function Home() {
   };
 
   const handleAlert = () => {
-    Alert.alert("Confirmação", "Deseja Sobrescrever os Dados? ", [
+    Alert.alert("Confirmation", "Are you sure to override data? ", [
       {
-        text: "Cancelar",
+        text: "Cancel",
       },
-      { text: "Sim", onPress: handleOk },
+      { text: "Yes", onPress: handleOk },
     ]);
   };
 
@@ -19,7 +19,7 @@ export default function Home() {
     <View style={styles.container}>
       <Text>Home</Text>
 
-      <Button title="Atualizar Profile (Alert)" onPress={handleAlert} />
+      <Button title="Update Profile (Alert Example)" onPress={handleAlert} />
     </View>
   );
 }
