@@ -91,7 +91,7 @@ modal.show(
 modal.hide();
 ```
 
-Want to use this modal in your project? Just copy [src/components/ModalProvider](src/components/ModalProvider) and use it. You can change modal styles in `styles.ts` 😉
+Want to use this modal in your project? Just copy [src/components/Modal/](src/components/Modal/) folder and use it. You can change modal styles in `styles.ts` 😉
 
 Check [src/examples/ModalExample.tsx](src/examples/ModalExample.tsx) for details.
 
