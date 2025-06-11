@@ -21,12 +21,12 @@ Check [src/examples/AlertExample.tsx](src/examples/AlertExample.tsx) for details
 
 This example shows a Modal wrapped in a Context wich requires to:
 
-1. Wrap application (or sub-tree) with context provided by `ModalProvider` (check [App.tsx](App.tsx) for complete details):
+1. Wrap application (or sub-tree) with context provided by `Modal.Provider` (check [App.tsx](App.tsx) for complete details):
 
 ```js
-<ModalProvider>
+<Modal.Provider>
   your screen or app root
-</ModalProvider>
+</Modal.Provider>
 ```
 
 Tip: if you're using Expo Router you can wrap the entire `_layout` to ensure all screens have access to the modal context.
@@ -51,6 +51,33 @@ modal.show(
 );
 
 ```
+
+You can also make use of `Modal`, `Modal.Header` and `Modal.Footer` components:
+
+```js
+<Modal>
+  <Modal.Header title="Modal title" withCloseButton />
+
+  Your modal content here...
+
+  <Modal.Footer
+    primaryAction={{
+      title: "OK",
+      onPress: () => {
+        console.log("Primary Action!");
+      },
+    }}
+    secondaryAction={{
+      title: "Cancel",
+      onPress: () => {
+        console.log("Secondary Action!");
+      },
+    }}
+  />
+</Modal>
+
+```
+
 
 Note that the only reference needed by client components is `modal` context from `useModal` hook:
 
