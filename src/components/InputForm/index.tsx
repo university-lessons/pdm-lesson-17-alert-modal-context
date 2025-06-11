@@ -1,23 +1,43 @@
-import { View, Text, TextInput, Button } from "react-native";
 import React, { useState } from "react";
+import { Button, StyleSheet, TextInput, View } from "react-native";
 
 interface InputFormProps {
-  onSubmit: () => void;
+  onSubmit: (text: string) => void;
 }
 
 export default function InputForm({ onSubmit }: InputFormProps) {
   const [name, setName] = useState("");
 
   const handleSubmit = () => {
-    console.log("Save data to DB: " + name);
-    onSubmit();
+    onSubmit(name);
   };
 
   return (
-    <View>
-      <TextInput value={name} onChangeText={setName} placeholder="Name..." />
+    <View style={{ width: "100%" }}>
+      <TextInput
+        value={name}
+        onChangeText={setName}
+        placeholder="Name..."
+        style={styles.input}
+      />
 
-      <Button title="OK" onPress={handleSubmit} />
+      <View style={styles.footer}>
+        <Button title="OK" onPress={handleSubmit} />
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  input: {
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 8,
+  },
+  footer: {
+    marginTop: 8,
+    gap: 8,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+  },
+});

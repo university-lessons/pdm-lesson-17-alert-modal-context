@@ -46,7 +46,7 @@ export default function ModalProvider({ children }: PropsWithChildren) {
           style={styles.container}
           onPress={() => setModalVisible(false)}
         >
-          <Pressable style={styles.content}>{modalContent}</Pressable>
+          <Pressable>{modalContent}</Pressable>
         </Pressable>
       </Modal>
 

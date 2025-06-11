@@ -6,16 +6,29 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "rgba(0.5,0.5,0.5,0.5)",
+    padding: 16,
   },
   content: {
-    width: "80%",
-    height: "80%",
     margin: 8,
     padding: 8,
     backgroundColor: "white",
     borderRadius: 8,
-    alignItems: "center",
-    justifyContent: "space-around",
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 8,
+  },
+  close: {
+    position: "absolute",
+    top: 8,
+    right: 8,
+  },
+  footer: {
+    marginTop: 8,
+    gap: 8,
+    flexDirection: "row",
+    justifyContent: "flex-end",
   },
 });
 

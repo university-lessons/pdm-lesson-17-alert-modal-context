@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
-import { useModal } from "../components/ModalProvider";
-import styles from "./styles";
+import { Button, Text, View } from "react-native";
 import InputForm from "../components/InputForm";
+import { useModal } from "../components/Modal/ModalProvider";
+import styles from "./styles";
+import Modal from "../components/Modal/Modal";
 
 export default function ModalExample() {
   const modal = useModal();
@@ -10,7 +10,9 @@ export default function ModalExample() {
   // Modal logic in contained in appModal context. Just use appModal.show( your_view )
   const handleShowModal = () => {
     modal.show(
-      <>
+      <Modal>
+        <Modal.Header title="Modal title" withCloseButton />
+
         <Text>This is the Modal content</Text>
         <Text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -21,17 +23,38 @@ export default function ModalExample() {
           This modal content is flexible and given by client component
           (ModalExample.jsx)
         </Text>
-        <Button title="OK" onPress={() => modal.hide()} />
-      </>
+
+        <Modal.Footer
+          primaryAction={{
+            title: "OK",
+            onPress: () => {
+              console.log("Primary Action!");
+            },
+          }}
+          secondaryAction={{
+            title: "Cancel",
+            onPress: () => {
+              console.log("Secondary Action!");
+            },
+          }}
+        />
+      </Modal>
     );
   };
 
   const handleInputModal = () => {
     modal.show(
-      <>
-        <Text>Insert your name:</Text>
-        <InputForm onSubmit={() => modal.hide()} />
-      </>
+      <Modal>
+        <Modal.Header title="Input" withCloseButton />
+
+        <Text>Please enter your name:</Text>
+        <InputForm
+          onSubmit={(text) => {
+            console.log("Input value (on parent component):", text);
+            modal.hide();
+          }}
+        />
+      </Modal>
     );
   };
 

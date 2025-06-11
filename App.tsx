@@ -1,13 +1,12 @@
-import ModalProvider from "./src/components/ModalProvider";
-
+import Modal from "./src/components/Modal/Modal";
 import AlertExample from "./src/examples/AlertExample";
 import ModalExample from "./src/examples/ModalExample";
 
 export default function App() {
   return (
-    <ModalProvider>
+    <Modal.Provider>
       <AlertExample />
       <ModalExample />
-    </ModalProvider>
+    </Modal.Provider>
   );
 }

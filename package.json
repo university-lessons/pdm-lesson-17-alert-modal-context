@@ -10,15 +10,15 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@types/react": "~18.3.12",
+    "@types/react": "~19.0.10",
     "@types/react-native": "~0.69.1",
-    "expo": "^52.0.30",
-    "expo-status-bar": "~2.0.1",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-native": "0.76.6",
-    "react-native-web": "~0.19.13",
-    "typescript": "~5.3.3"
+    "expo": "^53.0.11",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.3",
+    "react-native-web": "^0.20.0",
+    "typescript": "~5.8.3"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2"

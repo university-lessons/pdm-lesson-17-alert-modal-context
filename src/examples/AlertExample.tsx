@@ -1,5 +1,5 @@
-import { View, Text, Button, Alert, StyleSheet } from "react-native";
 import React from "react";
+import { Alert, Button, Text, View } from "react-native";
 import styles from "./styles";
 
 export default function AlertExample() {
