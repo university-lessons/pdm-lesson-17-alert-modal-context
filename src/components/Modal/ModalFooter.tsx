@@ -28,7 +28,7 @@ export default function ModalFooter({
           title={secondaryAction.title}
           onPress={() => {
             modal.hide();
-            secondaryAction.onPress();
+            secondaryAction.onPress?.();
           }}
         />
       )}
@@ -38,7 +38,7 @@ export default function ModalFooter({
           title={primaryAction.title}
           onPress={() => {
             modal.hide();
-            primaryAction.onPress();
+            primaryAction.onPress?.();
           }}
         />
       )}
