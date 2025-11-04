@@ -1,6 +1,7 @@
 import React from "react";
-import { Alert, Button, Text, View } from "react-native";
+import { Alert, Button, Platform, Text, View } from "react-native";
 import styles from "./styles";
+import AlertWeb from "../helpers/alertWeb";
 
 export default function AlertExample() {
   const handleInfo = () => {
@@ -25,6 +26,10 @@ export default function AlertExample() {
     ]);
   };
 
+  const handleWebAlert = () => {
+    AlertWeb.alert("Alert Mobile + Web");
+  };
+
   return (
     <View style={styles.container}>
       <View>
@@ -33,6 +38,7 @@ export default function AlertExample() {
       </View>
       <Button title="Show Info Alert" onPress={handleInfo} />
       <Button title="Show Confirm Alert" onPress={handleConfirm} />
+      <Button title="Show Alert Mobile + Web" onPress={handleWebAlert} />
     </View>
   );
 }
