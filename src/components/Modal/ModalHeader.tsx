@@ -22,7 +22,7 @@ export default function ModalHeader({
 
       {withCloseButton && (
         <Pressable style={styles.close} onPress={modal.hide}>
-          <AntDesign name="closecircleo" size={18} color="black" />
+          <AntDesign name="close" size={18} color="black" />
         </Pressable>
       )}
     </>
